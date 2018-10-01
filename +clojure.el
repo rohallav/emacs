@@ -1,4 +1,4 @@
-
+;;; ~/tod/.doom.d/+clojure.el -*- lexical-binding: t; -*-
 ;;;###autoload
 (defun my-lisp-hook ()
   (rainbow-delimiters-mode-disable)
@@ -13,12 +13,9 @@
         '(company-capf company-dabbrev-code company-keywords company-files))
   (setq add-log-current-defun-function
         #'lisp-current-defun-name))
-
-;; (setq cider-show-error-buffer t)
-;; (setq cider-auto-select-error-buffer t)
+(setq cider-default-repl-command "lein")
 
 (add-hook 'cider-mode-hook 'eldoc-mode)
-(add-hook 'clojure-mode-hook 'subword-mode)
-(add-hook 'emacs-lisp-mode-hook 'my-lisp-hook)
 (add-hook 'clojure-mode-hook 'my-lisp-hook)
 (add-hook 'clojure-mode-hook 'my-clojure-hook)
+(add-hook 'emacs-lisp-mode-hook 'my-lisp-hook)

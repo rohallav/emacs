@@ -3,29 +3,23 @@
 ;; theme
 (setq doom-theme 'eclipse)
 
-;; settings for paper-theme looks more nice
 ;;;###autoload
 (defun my-init-hook ()
   (delete-selection-mode)
   (global-subword-mode 1)
-  (hl-line-mode -1)
   (rainbow-delimiters-mode-disable)
   (require 'visual-regexp-steroids))
 
 (add-hook 'after-init-hook 'my-init-hook)
 (add-hook 'c++-mode-hook 'my-init-hook)
 (add-hook 'c-mode-common-hook 'my-init-hook)
+(remove-hook! (prog-mode text-mode conf-mode) #'hl-line-mode)
+(remove-hook! (prog-mode text-mode conf-mode) #'rainbow-delimiters-mode-enable)
 
 (setq lispy-no-permanent-semantic t
-      ;; lispy-delete-backward-recenter nil
-      ;; lispy-helm-columns '(70 100)
       lispy-avy-style-symbol 'at-full)
 
 ;; (add-hook 'cider-connected-hook (lambda () (cider-load-file (expand-file-name "lispy-clojure.clj" lispy-site-directory))))
-
-
-
-(setq cider-default-repl-command "lein")
 
 (setq
  ;; text-scale-mode-step 1.0
@@ -58,7 +52,6 @@
 ;; (add-hook 'prog-mode-hook #'rainbow-delimiters-mode-enable)
 (add-hook 'prog-mode-hook #'+format|enable-on-save)
 
-
-(load! "+general") ;; File manager stuff
+(load! "+general")
 (load! "+hydra")
 (load! "+clojure")
