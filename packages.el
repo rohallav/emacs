@@ -5,3 +5,4 @@
 (package! eclipse-theme)
 (package! lispy)
 (package! visual-regexp-steroids)
+(package! telephone-line)
