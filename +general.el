@@ -6,9 +6,7 @@
  ;; search
  "C-s" 'counsel-grep-or-swiper
  "C-S-s" '+ivy/project-search
- "M-S" '+ivy/project-search-from-cwd
- "M-r" 'query-replace-from-buffer-start
- "M-R" 'query-replace-regexp-from-buffer-start
+ "C-M-S" '+ivy/project-search-from-cwd
  "C-'" '+ivy/projectile-find-file
  ;; killing
  "C-h" 'doom/delete-backward-char
@@ -56,8 +54,8 @@
  ;; "C-j" 'newline-and-indent
 
  ;; mark
- "C-."'er/expand-region
- "C-," 'er/contract-region
+ "C-="'er/expand-region
+ "C--" 'er/contract-region
 
  "C-M-l" 'select-whole-line
  ;; mc mark
@@ -86,7 +84,8 @@
  ;; Search / Replace
  "C-M-%" 'vr/query-replace
  "M-%" 'vr/replace
- "M-$" 'vr/mc-mark
+
+
 
  )
 
@@ -145,10 +144,25 @@
 (general-def swiper-map
   [backtab] '+ivy/wgrep-occur)
 
+
+
+
 (general-def lispy-mode-map
   "M-f" 'forward-word
   "C-." 'lispy-mark
-  "C-r" 'lispy-backward)
+  "C-r" 'lispy-backward
+  "C-a" 'doom/backward-to-bol-or-indent
+  "C-e" 'doom/forward-to-last-non-comment-or-eol
+  "M-a" 'lispy-beginning-of-defun
+  "M-u \"" 'lispy-unstringify
+  "[" 'lispy-brackets
+  "C-M-h" 'lispy-move-left
+  "C-M-j" 'lispy-down-slurp
+  "C-M-k" 'lispy-up-slurp
+  "C-M-l" 'lispy-move-right)
+
+(define-key lispy-mode-map-lispy (kbd "]") nil)
+(define-key lispy-mode-map-lispy (kbd "} ") nil)
 
 (general-def company-active-map
   "C-n" 'company-select-next
@@ -157,7 +171,6 @@
   "C-j" 'company-complete
   "C-SPC" 'counsecounsel-company
   [tab]     #'company-complete-common-or-cycle
-  [backtab] #'company-select-previous
-  )
+  [backtab] #'company-select-previous)
 
 (general-setq auto-revert-interval 10)

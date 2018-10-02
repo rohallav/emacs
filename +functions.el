@@ -75,35 +75,3 @@
   (interactive)
   (yank)
   (call-interactively 'indent-region))
-
-(defun isearch-from-buffer-start ()
-  "Go to beginning point of the buffer and cast isearch-foward if cancel the action go back to start cast."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (isearch-forward)))
-
-(defun query-replace-from-buffer-start ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (call-interactively #'query-replace)))
-
-(defun query-replace-regexp-from-buffer-start ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (call-interactively #'query-replace-regexp)))
-(defun zap-to-char-save (arg char)
-  "Zap to a character, but save instead of kill."
-  (interactive "p\ncZap to char: ")
-  (save-excursion
-    (zap-to-char arg char)
-    (yank)))
-
-(defun zap-up-to-char-save (arg char)
-  "Zap to a character, but save instead of kill."
-  (interactive "p\ncZap to char: ")
-  (save-excursion
-    (zap-up-to-char arg char)
-    (yank)))

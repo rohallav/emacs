@@ -10,6 +10,11 @@
   (rainbow-delimiters-mode-disable)
   (require 'visual-regexp-steroids))
 
+(defun my-c++-mode-hook ()
+  (setq c-basic-offset 4)
+  (c-set-offset 'substatement-open 0))
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
 (add-hook 'after-init-hook 'my-init-hook)
 (add-hook 'c++-mode-hook 'my-init-hook)
 (add-hook 'c-mode-common-hook 'my-init-hook)
@@ -18,6 +23,8 @@
 
 (setq lispy-no-permanent-semantic t
       lispy-avy-style-symbol 'at-full)
+
+
 
 ;; (add-hook 'cider-connected-hook (lambda () (cider-load-file (expand-file-name "lispy-clojure.clj" lispy-site-directory))))
 

@@ -11,3 +11,4 @@
 (package! lispy)
 (package! visual-regexp-steroids)
 (package! telephone-line)
+(package! spacemacs-theme)
