@@ -22,15 +22,6 @@
 (remove-hook! (prog-mode text-mode conf-mode) #'hl-line-mode)
 (remove-hook! (prog-mode text-mode conf-mode) #'rainbow-delimiters-mode-enable)
 
-
-;; (after! lispy-mode
-;;   (define-key lispy-mode-map (kbd "]") nil)
-;;   (define-key lispy-mode-map (kbd "}") nil))
-;; (eval-after-load "lispy"
-;;   `(progn
-;;      (define-key lispy-mode-map (kbd "]") nil)
-;;      (define-key lispy-mode-map (kbd "}") nil)))
-
 (setq lispy-no-permanent-semantic t
       lispy-avy-style-symbol 'at-full)
 

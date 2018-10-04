@@ -165,7 +165,13 @@
   "C-)" 'paredit-forward-slurp-sexp
 
   "C-}" 'paredit-forward-barf-sexp
-  "C-{" 'paredit-backward-barf-sexp)
+  "C-{" 'paredit-backward-barf-sexp
+
+  "C-M-9" 'paredit-backward-slurp-sexp
+  "C-M-0" 'paredit-forward-slurp-sexp
+
+  "C-M-]" 'paredit-forward-barf-sexp
+  "C-M-[" 'paredit-backward-barf-sexp)
 
 
 
