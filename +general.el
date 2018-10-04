@@ -83,11 +83,7 @@
 
  ;; Search / Replace
  "C-M-%" 'vr/query-replace
- "M-%" 'vr/replace
-
-
-
- )
+ "M-%" 'vr/replace)
 
 ;; should change this for hydra
 ;; tab for next and prev
@@ -113,7 +109,7 @@
  )
 (global-set-key "\C-r" nil)
 
-(defvar master-key "C-ç")
+(defvar master-key "C-c m")
 
 (general-create-definer master-def
   :prefix master-key)
@@ -159,10 +155,26 @@
   "C-M-h" 'lispy-move-left
   "C-M-j" 'lispy-down-slurp
   "C-M-k" 'lispy-up-slurp
-  "C-M-l" 'lispy-move-right)
+  "C-M-l" 'lispy-move-right
+  )
 
-(define-key lispy-mode-map-lispy (kbd "]") nil)
-(define-key lispy-mode-map-lispy (kbd "} ") nil)
+(general-def lispy-mode-map-lispy
+  "]" nil
+  "}" nil)
+
+;; (after! lispy-mode
+;;   (define-key lispy-mode-map (kbd "]") nil)
+;;   (define-key lispy-mode-map (kbd "}") nil))
+;; (eval-after-load "lispy"
+;;   `(progn
+;;      (define-key lispy-mode-map (kbd "]") nil)
+;;      (define-key lispy-mode-map (kbd "}") nil)))
+
+(general-def clojure-mode-map
+  "C-c C-r" 'hydra-cljr-code-menu/body
+  "C-c C-n" 'hydra-cljr-ns-menu/body
+  "C-c p" 'hydra-cljr-project-menu/body
+  "C-c t" 'hydra-cljr-toplevel-form-menu/body)
 
 (general-def company-active-map
   "C-n" 'company-select-next

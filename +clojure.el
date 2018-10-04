@@ -4,7 +4,9 @@
   (rainbow-delimiters-mode-disable)
   (hl-line-mode -1)
   (lispy-mode 1)
-  (yas-minor-mode 1))
+  (yas-minor-mode 1)
+  )
+
 
 ;;;###autoload
 (defun my-clojure-hook ()

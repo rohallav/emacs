@@ -1,7 +1,8 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; theme
-(setq doom-theme 'eclipse)
+;; (setq doom-theme 'eclipse)
+(setq doom-theme 'paper)
 
 ;;;###autoload
 (defun my-init-hook ()
@@ -20,6 +21,15 @@
 (add-hook 'c-mode-common-hook 'my-init-hook)
 (remove-hook! (prog-mode text-mode conf-mode) #'hl-line-mode)
 (remove-hook! (prog-mode text-mode conf-mode) #'rainbow-delimiters-mode-enable)
+
+
+;; (after! lispy-mode
+;;   (define-key lispy-mode-map (kbd "]") nil)
+;;   (define-key lispy-mode-map (kbd "}") nil))
+;; (eval-after-load "lispy"
+;;   `(progn
+;;      (define-key lispy-mode-map (kbd "]") nil)
+;;      (define-key lispy-mode-map (kbd "}") nil)))
 
 (setq lispy-no-permanent-semantic t
       lispy-avy-style-symbol 'at-full)
