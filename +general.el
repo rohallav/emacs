@@ -142,11 +142,13 @@
 
 
 
-
-(general-def lispy-mode-map
+(general-emacs-define-key lispy-mode-map
   "M-f" 'forward-word
   "C-." 'lispy-mark
-  "C-r" 'lispy-backward
+  "C-3" 'lispy-backward
+  "C-q" 'lispy-backward
+  "C-r" 'lispy-forward
+
   "C-a" 'doom/backward-to-bol-or-indent
   "C-e" 'doom/forward-to-last-non-comment-or-eol
   "M-a" 'lispy-beginning-of-defun
@@ -156,15 +158,22 @@
   "C-M-j" 'lispy-down-slurp
   "C-M-k" 'lispy-up-slurp
   "C-M-l" 'lispy-move-right
+  "C-9" 'lispy-slurp-or-barf-left
+  "C-0" 'lispy-slurp-or-barf-right
+
+  "C-(" 'paredit-backward-slurp-sexp
+  "C-)" 'paredit-forward-slurp-sexp
+
+  "C-}" 'paredit-forward-barf-sexp
+  "C-{" 'paredit-backward-barf-sexp)
+
+
+
+(general-emacs-define-key lispy-mode-map-lispy
+  "]" nil
+  "}" nil
   )
 
-(general-def lispy-mode-map-lispy
-  "]" nil
-  "}" nil)
-
-;; (after! lispy-mode
-;;   (define-key lispy-mode-map (kbd "]") nil)
-;;   (define-key lispy-mode-map (kbd "}") nil))
 ;; (eval-after-load "lispy"
 ;;   `(progn
 ;;      (define-key lispy-mode-map (kbd "]") nil)
