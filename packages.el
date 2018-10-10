@@ -12,4 +12,4 @@
 (package! visual-regexp-steroids)
 (package! telephone-line)
 (package! spacemacs-theme)
-(package! paper-theme)
+(package! gotham-theme)

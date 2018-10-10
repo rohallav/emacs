@@ -2,7 +2,16 @@
 
 ;; theme
 ;; (setq doom-theme 'eclipse)
-(setq doom-theme 'paper)
+;; (setq doom-theme 'paper)
+;; (setq doom-theme 'kaolin-dark
+;;       kaolin-themes-hl-line-colored t
+;;       kaolin-themes-underline-wave t
+;;       kaolin-themes-italic-comments t
+;;       kaolin-themes-distinct-company-scrollbar t
+;;       )
+
+;; (setq doom-theme 'spacemacs-light)
+(setq doom-theme 'gotham)
 
 ;;;###autoload
 (defun my-init-hook ()
@@ -19,8 +28,10 @@
 (add-hook 'after-init-hook 'my-init-hook)
 (add-hook 'c++-mode-hook 'my-init-hook)
 (add-hook 'c-mode-common-hook 'my-init-hook)
-(remove-hook! (prog-mode text-mode conf-mode) #'hl-line-mode)
-(remove-hook! (prog-mode text-mode conf-mode) #'rainbow-delimiters-mode-enable)
+
+;; need this for light themes
+;; (remove-hook! (prog-mode text-mode conf-mode) #'hl-line-mode)
+;; (remove-hook! (prog-mode text-mode conf-mode) #'rainbow-delimiters-mode-enable)
 
 (setq lispy-no-permanent-semantic t
       lispy-avy-style-symbol 'at-full)
@@ -41,10 +52,13 @@
 ;; default frame
 (add-to-list 'default-frame-alist '(height . 100))
 (add-to-list 'default-frame-alist '(width . 100))
-(add-to-list 'default-frame-alist '(background-color . "white"))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'default-frame-alist '(background-color . "white"))
 
-(set-face-background 'show-paren-match "#8C0D40")
-(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+;; (set-face-background 'show-paren-match "#8C0D40")
+;; (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+
+;; (set-popup-rule! "^\\*cider-repl" :size 0.25 :slot 1 :vslot -2 :select t :quit nil :ttl 0)
 
 ;; when use vim keybinds again
 ;; (setq display-line-numbers-type 'relative)
